@@ -1,0 +1,84 @@
+/* SplashCursor.css */
+
+/* Hide the native cursor for the body while the component is mounted */
+/* The component also sets document.body.style.cursor = 'none' in JS to ensure cross-browser behavior */
+
+.cursor-dot {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(59, 130, 246, 1); /* primary */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(59,130,246,0.35);
+}
+
+.splash {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: rgba(99,102,241,0.2);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  animation: splash-expand 500ms ease-out forwards;
+}
+
+@keyframes splash-expand {
+  0% {
+    width: 12px;
+    height: 12px;
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+}
+/* Hide the default cursor for the whole page */
+body {
+  cursor: none;
+}
+
+/* The dot that follows the cursor */
+.cursor-dot {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(100, 180, 255, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
+/* The splash/ripple effect */
+.splash {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(100, 180, 255, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  animation: splash-animation 0.5s ease-out forwards;
+}
+
+@keyframes splash-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
